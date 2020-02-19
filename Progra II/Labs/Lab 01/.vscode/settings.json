@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        //"/Users/manuel/Documents/Universidad/Progra II/Libraries/Arrays.jar",
+        "/Users/manuel/Documents/Universidad/Progra II/Libraries/StdLib/stdlib.jar/*"
+    ],
+    "java.dependency.syncWithFolderExplorer": true
+}

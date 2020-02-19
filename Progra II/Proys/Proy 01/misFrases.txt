@@ -1,0 +1,6 @@
+Este fichero forma parte del primer proy del año.
+La informatica es el futuro del mundo.
+Este Proy ha sido desarrollado por un alumno del 3M (MLcC).
+La ETSIInf no la diseñaron arquitectos.
+Esta es una frase mas de este archivo.
+En esta frase termina el fichero.

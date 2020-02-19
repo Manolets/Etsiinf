@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/manuel/Documents/Universidad/Progra II/Libraries/StdLib/**/*.jar"
+    ]
+}

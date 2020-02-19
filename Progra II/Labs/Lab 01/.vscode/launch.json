@@ -1,0 +1,76 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Java",
+            "type": "java",
+            "request": "launch",
+            "stopOnEntry": true,
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "cwd": "${fileDirname}",
+            "startupClass": "${fileBasenameNoExtension}",
+            "classpath": [
+                ".",
+                "${fileDirname}", 
+                "../../Libraries/*"
+            ]
+        },
+        {
+            "name": "Java Console App",
+            "type": "java",
+            "request": "launch",
+            "stopOnEntry": true,
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "cwd": "${fileDirname}",
+            "startupClass": "${fileBasenameNoExtension}",
+            "classpath": [
+                ".",
+                "${fileDirname}",
+                "../../Libraries/*"
+            ],
+            "externalConsole": true
+        },
+        {
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "cwd": "${fileDirname}",
+            "startupClass": "${fileBasename}",
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "cwd": "${fileDirname}",
+            "startupClass": "${fileBasename}",
+            "type": "java",
+            "name": "Debug (Launch)-ArchivoEOF<Lab 01_94f42a66>",
+            "request": "launch",
+            "mainClass": "ArchivoEOF",
+            "projectName": "Lab 01_94f42a66"
+        },
+        {
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "cwd": "${fileDirname}",
+            "startupClass": "${fileBasename}",
+            "type": "java",
+            "name": "Debug (Launch)-EntradaSalida<Lab 01_94f42a66>",
+            "request": "launch",
+            "mainClass": "EntradaSalida",
+            "projectName": "Lab 01_94f42a66"
+        },
+        {
+            "jdkPath": "${env:JAVA_HOME}/bin",
+            "cwd": "${fileDirname}",
+            "startupClass": "${fileBasename}",
+            "type": "java",
+            "name": "Debug (Launch)-IntOrdTest<Lab 01_94f42a66>",
+            "request": "launch",
+            "mainClass": "IntOrdTest",
+            "projectName": "Lab 01_94f42a66"
+        }
+    ]
+}

@@ -11,16 +11,26 @@
  */
 public class ReinaAF {
 
-    static String [][] tablero;
+    static char [][] tablero;
 
-    static void arrayTablero(int n){
-        tablero = new String [n][n];
+    /*
+    esCuadroBlanco (x, y : int) : boolean
+    PRE: esPosicionTablero(x, y)
+    POST: Devuelve cierto si y solo si el cuadro de coordenadas (x, y)
+    es un cuadro blanco [y falso e.o.c.].
+    */
+    static boolean esCuadroBlanco(int x, int y){
+        return (x % 2 == 0 && y % 2 == 0 || x % 2 != 0 && y % 2 != 0);
+    }
+
+    static void inicializarTablero(int n){
+        tablero = new char [n][n];
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
-                if (i % 2 == 0 && j % 2 == 0 || i % 2 != 0 && j % 2 != 0) {
-                    tablero[i][j] = "N";
+                if (esCuadroBlanco(i, j)) {
+                    tablero[i][j] = 'N';
                 } else {
-                    tablero[i][j] = "B";
+                    tablero[i][j] = 'B';
                 }
             }
         }
@@ -29,40 +39,59 @@ public class ReinaAF {
     static void setCanvas(int n){
         if (n > 20)
             StdDraw.setCanvasSize(800, 800);
-        arrayTablero(n);
+        inicializarTablero(n);
         StdDraw.setXscale(0, n);
         StdDraw.setYscale(0, n);
-        tablero();
+        StdDraw.enableDoubleBuffering();
+        pintarTablero();
     }
 
-    static void tablero(){
+    /*
+    esPosicionTablero (x, y : int) : boolean
+    POST: resultado = x IN [1, n] and y IN [1, n]
+    */
+    static boolean esPosicionTablero(int x, int y){
+        return (x > 0 && y > 0 && x <= tablero.length && y <= tablero.length);
+    }
+
+    static void pintarTablero(){
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
-                if (tablero[i][j].equals("N")) {
+                if (tablero[i][j] == 'N') {
                     StdDraw.setPenColor(StdDraw.BLACK);
                     StdDraw.filledSquare(i + 0.5, j + 0.5, 0.5);
-                } else if (tablero[i][j].equals("B")){
+                } else if (tablero[i][j] == 'B'){
                     StdDraw.setPenColor(StdDraw.WHITE);
                     StdDraw.filledSquare(i + 0.5, j + 0.5, 0.5);
-                } else if (tablero[i][j].equals("*")){
+                } else if (tablero[i][j] == '*'){
                     StdDraw.setPenColor(StdDraw.RED);
                     StdDraw.filledSquare(i + 0.5, j + 0.5, 0.5); 
-                } else if(tablero[i][j].equals("R")){
+                } else if(tablero[i][j] == 'R'){
                     StdDraw.setPenColor(StdDraw.YELLOW);
                     StdDraw.filledSquare(i + 0.5, j + 0.5, 0.5);
                 }
             }
         }
+        StdDraw.show();
+        System.out.println(aString(tablero));
+    }
+    /*
+    aString (tablero : TipoTablero) : String
+    POST: Convierte tablero a String.
+    */
+    static String aString(char[][] tablero){
+        String elTablero = "";
         for (int i = tablero.length - 1; i >= 0; i--) {
             for (int j = 0; j < tablero.length; j++) {
-                System.out.print(tablero[j][i] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println();
+                 elTablero += tablero[j][i] + " ";
+              }
+             elTablero += "\n";
+         }
+         elTablero += "\n";
+        return elTablero;
     }
 
-    static void reina(int x, int y){
+    static void marcarAmenazasReina(int x, int y){
         if (x < 1)
             x = 1;
         if (x > tablero.length)
@@ -71,57 +100,57 @@ public class ReinaAF {
             y = 1;
         if (y > tablero.length)
             y = tablero.length;
-        for (String[] strings : tablero) {
-            strings[y - 1] = "*";
+        for (char[] charcter : tablero) {
+            charcter[y - 1] = '*';
         }
         for (int i = 0; i < tablero.length; i++) {
-            tablero[x - 1][i] = "*";            
+            tablero[x - 1][i] = '*';            
         }
         int i = x, j = y;
         while (i > 0 && j > 0) {
-            tablero[i - 1][j - 1] = "*";
+            tablero[i - 1][j - 1] = '*';
             i --;
             j --;
         }
         i = x; j = y;
         while (i > 0 && j <= tablero.length) {
-            tablero[i - 1][j - 1] = "*";
+            tablero[i - 1][j - 1] = '*';
             i --;
             j ++;
         }
         i = x; j = y;
         while (i <= tablero.length && j > 0) {
-            tablero[i - 1][j - 1] = "*";
+            tablero[i - 1][j - 1] = '*';
             i ++;
             j --;
         }
         i = x; j = y;
         while (i <= tablero.length && j <= tablero.length) {
-            tablero[i - 1][j - 1] = "*";
+            tablero[i - 1][j - 1] = '*';
             i ++;
             j ++;
         }
-        tablero[x - 1][y - 1] = "R";
-        tablero();
+        tablero[x - 1][y - 1] = 'R';
+        pintarTablero();
     }
 
     public static void main(String[] args) {
         System.out.println("De cuanto quieres el tablero: ");
         int n = StdIn.readInt();
         setCanvas(n);
-        // System.out.println("Posicion X de la reina: ");
-        // int x = StdIn.readInt();
-        // System.out.println("Posicion Y de la reina: ");
-        // int y = StdIn.readInt();
-        // reina(x, (n+1) - y);
+        System.out.println("Posicion X de la reina: ");
+        int x = StdIn.readInt();
+        System.out.println("Posicion Y de la reina: ");
+        int y = StdIn.readInt();
+        marcarAmenazasReina(x, (n+1) - y);
         // while (true) {
         // arrayTablero(n);
-        // reina((int)StdDraw.mouseX() + 1, (int) StdDraw.mouseY() + 1);
+        // marcarAmenazasReina((int)StdDraw.mouseX() + 1, (int) StdDraw.mouseY() + 1);
         // }
         while (true) {
             if (StdDraw.isMousePressed()) {
-            arrayTablero(n);
-            reina((int)StdDraw.mouseX() + 1, (int) StdDraw.mouseY() + 1);
+            inicializarTablero(n);
+            marcarAmenazasReina((int)StdDraw.mouseX() + 1, (int) StdDraw.mouseY() + 1);
             }
         }
     }

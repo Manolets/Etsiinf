@@ -1,6 +1,6 @@
-import java.util.*;
-import java.text.*;
-import java.awt.*;
+// import java.util.*;
+// import java.text.*;
+// import java.awt.*;
 //import stdlib.*;
 /** 
  * Operaciones de Fecha.
@@ -37,10 +37,8 @@ public class FechaOps
    * POST: Determina si la Fecha f est� en el intervalo 
           [fecha1, fecha2].       
    */         
-  public static boolean estaEnIntervalo (Fecha f,
-                                         Fecha fecha1, 
-                                         Fecha fecha2) { 
-    return false;
+  public static boolean estaEnIntervalo (Fecha f, Fecha fecha1, Fecha fecha2) {
+    return (esMenorOIgual(fecha1, f) && esMenorOIgual(f, fecha2));
   }  
   /**
    * edad (f, nac : Fecha) : int
@@ -48,16 +46,27 @@ public class FechaOps
    *       fecha <f> conociendo la Fecha de nacimiento <nac>.
    */         
   public static int edad (Fecha f, Fecha nac) {
-    return 0;
+    int años = f.año() - nac.año();
+    if (f.dia() < nac.dia() || f.mes() < nac.mes())
+      años--;
+    return años;
   }
   /**
    * diasEntreFechas (fecha1, fecha2 : Fecha) : int
    * POST: Devuelve el n�mero de d�as transcurridos
           entre <fecha1> y <fecha2>.
    */ 
-  public static int diasEntreFechas (Fecha fecha1, Fecha fecha2) 
-  { 
-    return 0;
+  public static int diasEntreFechas (Fecha fecha1, Fecha fecha2) {
+    int i = 0;
+      if (fecha2.esMenor(fecha1)) {
+        return 0;
+      } else {    
+        while (!fecha1.esIgual(fecha2)) {
+          fecha1 = fecha1.fechaSiguiente();
+          i++;
+        } 
+  }
+    return i;
   }
   public static Fecha leer () {
    System.out.print("dia>");

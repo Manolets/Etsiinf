@@ -26,11 +26,11 @@ public class FechaOpsTest
    */
   //  edad:
   static boolean prueba1edad = 
-    FechaOps.edad(Fecha.hoy(), new Fecha(24, 11, 1964)) == 55;
+    FechaOps.edad(f9, new Fecha(24, 11, 1964)) == 52;
   static boolean prueba2edad = 
-    FechaOps.edad(Fecha.hoy(), new Fecha(24, 11, 1970)) == 49;
+    FechaOps.edad(f8, new Fecha(24, 11, 1970)) == 47;
   static boolean prueba3edad = 
-    FechaOps.edad(Fecha.hoy(), new Fecha(28, 12, 1980)) == 39;
+    FechaOps.edad(Fecha.hoy(), new Fecha(28, 12, 1980)) == 37;
   static boolean pruebaEdad = 
     prueba1edad &&
     prueba2edad &&
@@ -70,18 +70,18 @@ public class FechaOpsTest
 //    prueba4fechaTrasDias;
 
 
-//  //estaEnIntervalo :
-//  static boolean prueba1estaEnIntervalo = 
-//    f5.estaEnIntervalo(f5, f6) == true;
-//  static boolean prueba2estaEnIntervalo = 
-//    f5.estaEnIntervalo(f4, f6) == true;
-//  static boolean prueba3estaEnIntervalo = 
-//    f5.estaEnIntervalo(f6, f7) == false;
-//  static boolean pruebaEstaEnIntervalo =
-//    prueba1estaEnIntervalo &&
-//    prueba2estaEnIntervalo &&
-//    prueba3estaEnIntervalo;
-//
+ //estaEnIntervalo :
+ static boolean prueba1estaEnIntervalo = 
+   f5.estaEnIntervalo(f5, f6) == true;
+ static boolean prueba2estaEnIntervalo = 
+   f5.estaEnIntervalo(f4, f6) == true;
+ static boolean prueba3estaEnIntervalo = 
+   f5.estaEnIntervalo(f6, f7) == false;
+ static boolean pruebaEstaEnIntervalo =
+   prueba1estaEnIntervalo &&
+   prueba2estaEnIntervalo &&
+   prueba3estaEnIntervalo;
+
   public static void main (String[] args) 
   {   
     System.out.println("pruebaEdad = " + 

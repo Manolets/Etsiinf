@@ -23,6 +23,10 @@ public class ReinaAF {
         return (x % 2 == 0 && y % 2 == 0 || x % 2 != 0 && y % 2 != 0);
     }
 
+    /**
+     * inicializarTablero(n : int)
+     * POST: rellena el tablero de blanco y negro.
+     */
     static void inicializarTablero(int n){
         tablero = new char [n][n];
         for (int i = 0; i < tablero.length; i++) {
@@ -36,6 +40,10 @@ public class ReinaAF {
         }
     }
 
+    /**
+     * setCanvas(n : int)
+     * POST: inicia la pantalla del StdDraw, para poder pintar el tablero (mdodo gráfico)
+     */
     static void setCanvas(int n){
         if (n > 20)
             StdDraw.setCanvasSize(800, 800);
@@ -54,6 +62,11 @@ public class ReinaAF {
         return (x > 0 && y > 0 && x <= tablero.length && y <= tablero.length);
     }
 
+    /**
+     * pintarTablero()
+     * POST: pinta el tablero en el modo gráfico y llama a aString para pintarlo
+     * por la salida estandar
+     */
     static void pintarTablero(){
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
@@ -91,6 +104,11 @@ public class ReinaAF {
         return elTablero;
     }
 
+     /**
+     * marcarAmenazasReina()
+     * PRE: esPosiciónTablero(posición de la reina)
+     * POST: dada la posición de la reina marca los cuadros amenazados
+     */
     static void marcarAmenazasReina(int x, int y){
         if (x < 1)
             x = 1;
@@ -138,11 +156,11 @@ public class ReinaAF {
         System.out.println("De cuanto quieres el tablero: ");
         int n = StdIn.readInt();
         setCanvas(n);
-        System.out.println("Posicion X de la reina: ");
-        int x = StdIn.readInt();
-        System.out.println("Posicion Y de la reina: ");
-        int y = StdIn.readInt();
-        marcarAmenazasReina(x, (n+1) - y);
+        // System.out.println("Posicion X de la reina: ");
+        // int x = StdIn.readInt();
+        // System.out.println("Posicion Y de la reina: ");
+        // int y = StdIn.readInt();
+        // marcarAmenazasReina(x, (n+1) - y);
         // while (true) {
         // arrayTablero(n);
         // marcarAmenazasReina((int)StdDraw.mouseX() + 1, (int) StdDraw.mouseY() + 1);

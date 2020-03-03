@@ -9,6 +9,7 @@ import java.util.*;
  */
 public class FechaTest 
 {
+  static Fecha f0 = new Fecha(0, 6, 1978); 
   static Fecha f1 = new Fecha(0, 6, 1978); 
   static Fecha f2 = new Fecha(1, 6, 1978); 
   static Fecha f3 = new Fecha(1, 14, 1978); 
@@ -81,31 +82,31 @@ public class FechaTest
   }
   public static void main (String[] args) 
   {   
-//    System.out.println("f2 = " + f2);
-    //
-//    System.out.println("f9 = " + f9);
-    //    
+   System.out.println("f2 = " + f2);
+    
+   System.out.println("f9 = " + f9);
+       
     System.out.println("pruebaEsIgual = " + 
                        pruebaEsIgual);
-    //    
+       
    System.out.println("pruebaEsMenor = " + 
                       pruebaEsMenor);
     
-//    System.out.println("pruebaEsFechaCorrecta = " + 
-//                       pruebaEsFechaCorrecta);
-    //
-//    System.out.println("pruebaDate = " + 
-//                       new Date());
-    //
-//    System.out.println("hoy = " + hoy);
-    //
-//    System.out.println("pruebaFechaSiguiente = " + 
-//                       pruebaFechaSiguiente);
-    //
-//    System.out.println("mañana = " + mañana);
-    //
-//    System.out.println("pasado mañana = " + pasadoMañana);
-    //    
-//    pruebaEscribirModoGrafico();
+   System.out.println("pruebaEsFechaCorrecta = " + 
+                      pruebaEsFechaCorrecta);
+    
+   System.out.println("pruebaDate = " + 
+                      new Date());
+    
+   System.out.println("hoy = " + hoy);
+    
+   System.out.println("pruebaFechaSiguiente = " + 
+                      pruebaFechaSiguiente);
+    
+   System.out.println("mañana = " + mañana);
+    
+   System.out.println("pasado mañana = " + pasadoMañana);
+       
+   pruebaEscribirModoGrafico();
    }
 }

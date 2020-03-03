@@ -1,7 +1,7 @@
-import java.util.*;
-import java.text.*;
+//import java.util.*;
+// import java.text.*;
 import java.awt.*;
-import java.io.*;
+// import java.io.*;
 //import stdlib.*;
 
 /** 
@@ -155,7 +155,14 @@ public class Fecha
    *         {Jan, Feb, Mar, Apr, May, Jun, 
    *          Jul, Aug, Sep, Oct, Nov, Dec} 
    */ 
-  private static int mes (String name) 
+
+   public boolean estaEnIntervalo(Fecha fecha1, Fecha fecha2){
+    Fecha f = new Fecha(dia, mes, año);
+    return FechaOps.estaEnIntervalo(f, fecha1, fecha2);
+   }
+
+
+  public static int mes (String name) 
   {
     String[] months = 
       {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
@@ -187,6 +194,7 @@ public class Fecha
   public static Fecha mañana () {
     return (hoy().fechaSiguiente());
   }  
+
   private static void iniciarGraficos () 
   {  
     int XMAX = 700;

@@ -107,6 +107,8 @@ public class Tablero {
 
     /**
      * marcarAmenazasReina()
+     * PRE: esPosiciónTablero(posición de la reina)
+     * POST: dada la posición de la reina marca los cuadros amenazados
      */
     public void marcarAmenazasReina(int x, int y){
         if (x < 1)

@@ -35,15 +35,15 @@ public class Fecha
   }
 
   public int dia () {
-    return -1;
+    return dia;
   }
 
   public int mes () {
-    return -1;
+    return mes;
   }
 
   public int año () {
-    return -1;
+    return año;
   }
 
   public String toString () {
@@ -182,7 +182,7 @@ public class Fecha
    * hoy () : Fecha
    * POST: Devuelve la Fecha de hoy.
    */ 
-  public static Fecha hoy () {
+  public static Fecha hoy() {
     String fecha = ("" + java.time.LocalDate.now()).replace("-", "/");
     String partes[] = fecha.split("/");
     return new Fecha(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0]));

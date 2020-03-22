@@ -26,11 +26,11 @@ public class FechaOpsTest
    */
   //  edad:
   static boolean prueba1edad = 
-    FechaOps.edad(f9, new Fecha(24, 11, 1964)) == 52;
+    FechaOps.edad(f9, new Fecha(24, 11, 1964)) == 51;
   static boolean prueba2edad = 
-    FechaOps.edad(f8, new Fecha(24, 11, 1970)) == 47;
+    FechaOps.edad(f8, new Fecha(24, 11, 1970)) == 46;
   static boolean prueba3edad = 
-    FechaOps.edad(Fecha.hoy(), new Fecha(28, 12, 1980)) == 37;
+    FechaOps.edad(Fecha.hoy(), new Fecha(28, 12, 1980)) == 39;
   static boolean pruebaEdad = 
     prueba1edad &&
     prueba2edad &&

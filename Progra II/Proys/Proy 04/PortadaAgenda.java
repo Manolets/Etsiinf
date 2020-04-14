@@ -3,15 +3,20 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 /**
- * AgendaAppImpl
+ * PortadaAgenda
+ * @version 1.0
+ * @author Manuel López-Cerón Corredor
  */
 public class PortadaAgenda {
 
-    // private Agenda agenda = new Agenda();
     private static String[] listaDeNombres = new String[100];
     private static int pressed;
     private static int selected;
 
+    /** 
+     * portadaAgenda(agenda : Agenda)
+     * POST: Muestra la portada de la agenda con una lista y los botones de acción
+    */
     public static int[] portadaAgenda(Agenda agenda){
         for (int i = 0; i < agenda.size(); i++) {
             listaDeNombres[i] = agenda.get(i).nombre();

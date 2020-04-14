@@ -1,6 +1,8 @@
 
 /**
  * Contacto
+ * @version 1.0
+ * @author Manuel López-Cerón Corredor
  */
 public class Contacto {
 

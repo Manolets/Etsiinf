@@ -4,9 +4,17 @@ import javax.swing.*;
 
 /**
  * AñadirContacto
+ * @version 1.0
+ * @author Manuel López-Cerón Corredor
  */
 public class AñadirContacto {
 
+    /** 
+     * añadirContacto(agenda : Agenda) 
+     * POST: crea un panel para añadir un contacto a la
+     * agenda de la aplicación. Una vez insertados los datos 
+     * se añade a la aplicación yb lo escribe al archivo.
+    */
     public static void añadirContacto(Agenda agenda){
         JPanel panel = new JPanel();
         JTextField nombre = new JTextField(20);
@@ -68,6 +76,12 @@ public class AñadirContacto {
 
     }
 
+    /** 
+     * quitarContacto(agenda : Agenda, id : int) 
+     * PRE: el id tiene que ser un elemento de la agenda
+     * POST: crea un panel para de confirmación para añadir
+     * un contacto de la agenda de la aplicación. 
+    */
     public static void quitarContacto(Agenda agenda, int id){
         int selected = JOptionPane.showConfirmDialog(null, "Está seguro de que quiere eliminar el contacto?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.YES_NO_OPTION, null);
         System.out.println(selected);

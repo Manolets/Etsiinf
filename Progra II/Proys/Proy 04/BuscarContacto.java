@@ -5,10 +5,17 @@ import java.util.*;
 
 /**
  * BuscarContacto
+ * @version 1.0
+ * @author Manuel López-Cerón Corredor
  */
 public class BuscarContacto {
     private static int casosint = 0;
 
+    /** 
+     * buscarContacto(agenda : Agenda)
+     * crea un panel para buscar un contacto presente en la agenda
+     * y llama a mostrarContacto según la selección
+    */
     public static void buscarContacto(Agenda agenda){
         JPanel fpanel = new JPanel();
         JLabel buscar = new JLabel("Buscar: ");

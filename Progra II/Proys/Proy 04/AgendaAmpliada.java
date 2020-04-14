@@ -3,6 +3,8 @@ import java.nio.file.*;
 
 /**
  * AgendaAmpliada
+ * @version 1.0
+ * @author Manuel López-Cerón Corredor
  */
 public class AgendaAmpliada {
 
@@ -24,7 +26,7 @@ public class AgendaAmpliada {
         while((line=br.readLine())!= null){  
           StringBuffer sb = new StringBuffer();    
           partes = sb.append(line).toString().split(";");
-          if(partes.length > 0){
+          if(!line.equals(";;")){
             Contacto c = new Contacto(partes[0], partes[1], partes[2]);
             agenda.añadirContacto(c);
           }

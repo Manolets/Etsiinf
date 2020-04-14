@@ -4,9 +4,18 @@ import javax.swing.*;
 
 /**
  * EditarContacto
+ * @version 1.0
+ * @author Manuel López-Cerón Corredor
  */
 public class EditarContacto {
 
+    /** 
+     * editarContacto(agenda : Agenda, id : int) 
+     * PRE: el id tiene que ser un elemento de la agenda
+     * POST: crea un panel para editar un contacto de la
+     * agenda de la aplicación. Una vez insertados los datos 
+     * se modifica en la aplicación yb lo escribe al archivo.
+    */
     public static void editarContacto(Agenda agenda, int id){
         JPanel panel = new JPanel();
         JTextField nombre = new JTextField(agenda.get(id).nombre(), 20);

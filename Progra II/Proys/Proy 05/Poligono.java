@@ -1,5 +1,11 @@
 import java.awt.*;
 
+/**
+ * Poligono
+ * 
+ * @author Manuel López-Cerón Corredor
+ */
+
 public class Poligono implements IPoligono {
     private Color color = null;
     private boolean atrib = true; // Esto es solo para la función lapiz en PoligonoApp

@@ -2,6 +2,10 @@
 
 /**
  * PoligonosApp
+ * 
+ * @author Manuel López-Cerón Corredor
+ * 
+ * Un intento a replicar el programa Paint
  */
 public class PoligonosApp {
 

@@ -1,13 +1,17 @@
 import java.awt.*;
+import java.io.IOException;
 
 import javax.swing.*;
+
 /**
  * Herramientas
+ * 
+ * @author Manuel López-Cerón Corredor
  */
 public class Herramientas {
     static Object mouse = new Object();
 
-    public static void iniciarCanvas(){
+    public static void iniciarCanvas() {
         int x, y;
         Dimension canvas = new Dimension(1418, 800);
         x = (int) canvas.getWidth();
@@ -21,17 +25,18 @@ public class Herramientas {
     }
 
     private static int c = 0;
-    
-    public static void clear(){
+
+    public static void clear() {
         PoligonosApp.figuras = new ListaDePoligonos();
         PoligonosApp.mostrarFiguras();
         c = 0;
         PanelHerramientas.iniciarPanelHerramientas();
     }
 
-    public static void colores(){
-        String[] botones = {"RGB", "Blanco", "Negro", "Azul", "Verde", "Rojo", "Amarillo", "Rosa", "Naranja"};
-        int res = JOptionPane.showOptionDialog(null, null, "¿Que color quieres?", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null, botones, null);
+    public static void colores() {
+        String[] botones = { "RGB", "Blanco", "Negro", "Azul", "Verde", "Rojo", "Amarillo", "Rosa", "Naranja" };
+        int res = JOptionPane.showOptionDialog(null, null, "¿Que color quieres?", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.DEFAULT_OPTION, null, botones, null);
         switch (res) {
             case 0:
                 rgb();
@@ -61,22 +66,25 @@ public class Herramientas {
             case 8:
                 StdDraw.setPenColor(StdDraw.ORANGE);
                 break;
-        
+
             default:
                 break;
         }
         PanelHerramientas.iniciarPanelHerramientas();
     }
 
-    private static void rgb(){
+    private static void rgb() {
         JLabel redl = new JLabel("Red: "), greenl = new JLabel("Green: "), bluel = new JLabel("Blue: ");
         JTextField red = new JTextField(5), green = new JTextField(5), blue = new JTextField(5);
         JPanel p = new JPanel();
         p.setLayout(null);
         p.setPreferredSize(new Dimension(420, 50));
-        p.add(redl);    p.add(red);
-        p.add(greenl);  p.add(green);
-        p.add(bluel);   p.add(blue);
+        p.add(redl);
+        p.add(red);
+        p.add(greenl);
+        p.add(green);
+        p.add(bluel);
+        p.add(blue);
 
         Dimension size = greenl.getPreferredSize();
         redl.setBounds(10, 25, size.width, size.height);
@@ -86,16 +94,18 @@ public class Herramientas {
         bluel.setBounds(290, 25, size.width, size.height);
         blue.setBounds(320, 25, size.width * 2, size.height);
 
-        JOptionPane.showOptionDialog(null, p, "RGB (0, 255)", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null, null, null);
+        JOptionPane.showOptionDialog(null, p, "RGB (0, 255)", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION,
+                null, null, null);
         try {
-            StdDraw.setPenColor(Integer.parseInt(red.getText()), Integer.parseInt(green.getText()), Integer.parseInt(blue.getText()));
+            StdDraw.setPenColor(Integer.parseInt(red.getText()), Integer.parseInt(green.getText()),
+                    Integer.parseInt(blue.getText()));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Los valores tienen que estar entre 0 y 255", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Los valores tienen que estar entre 0 y 255", "ERROR",
+                    JOptionPane.ERROR_MESSAGE);
             rgb();
         }
         PanelHerramientas.iniciarPanelHerramientas();
     }
-
 
     public static void linea() {
         Poligono linea = new Poligono(10, true, StdDraw.getPenColor());
@@ -106,13 +116,15 @@ public class Herramientas {
             e.printStackTrace();
         }
 
-        while (!StdDraw.isMousePressed()) {}
+        while (!StdDraw.isMousePressed()) {
+        }
 
         linea.add(new Punto(StdDraw.mouseX(), StdDraw.mouseY()));
         linea.add(new Punto(StdDraw.mouseX(), StdDraw.mouseY()));
 
-        while (StdDraw.isMousePressed()){}
-        
+        while (StdDraw.isMousePressed()) {
+        }
+
         while (!StdDraw.isMousePressed()) {
             PoligonosApp.figuras.removeElementAt(c);
             linea.removeElementAt(1);
@@ -120,14 +132,16 @@ public class Herramientas {
             PoligonosApp.figuras.set(c, linea);
             PoligonosApp.mostrarFiguras();
         }
-        while (StdDraw.isMousePressed()) {}
+        while (StdDraw.isMousePressed()) {
+        }
         c++;
         PanelHerramientas.iniciarPanelHerramientas();
     }
 
     public static void cuadrilatero() {
         Poligono cuad = new Poligono(10, true, StdDraw.getPenColor());
-        while (!StdDraw.isMousePressed()) {}
+        while (!StdDraw.isMousePressed()) {
+        }
 
         Punto inicial = new Punto(StdDraw.mouseX(), StdDraw.mouseY());
         cuad.add(inicial);
@@ -135,54 +149,58 @@ public class Herramientas {
         cuad.add(inicial);
         cuad.add(inicial);
 
-        while (StdDraw.isMousePressed()){}
+        while (StdDraw.isMousePressed()) {
+        }
 
         while (!StdDraw.isMousePressed()) {
             PoligonosApp.figuras.removeElementAt(c);
             cuad.removeElementAt(3);
             cuad.removeElementAt(2);
             cuad.removeElementAt(1);
-            
+
             cuad.add(new Punto(StdDraw.mouseX(), inicial.y()));
             cuad.add(new Punto(StdDraw.mouseX(), StdDraw.mouseY()));
             cuad.add(new Punto(inicial.x(), StdDraw.mouseY()));
 
-            
             PoligonosApp.figuras.set(c, cuad);
             PoligonosApp.mostrarFiguras();
         }
-        while (StdDraw.isMousePressed()) {}
+        while (StdDraw.isMousePressed()) {
+        }
         c++;
         PanelHerramientas.iniciarPanelHerramientas();
     }
 
-    public static void poligono(int lados){
+    public static void poligono(int lados) {
         Poligono pol = new Poligono(lados + 3, true, StdDraw.getPenColor());
         int count = 1;
-        while (!StdDraw.isMousePressed()) {}
+        while (!StdDraw.isMousePressed()) {
+        }
         Punto inicial = new Punto(StdDraw.mouseX(), StdDraw.mouseY());
         pol.add(inicial);
-        for (int i = 0; i < lados -1; i++) {
-            while (StdDraw.isMousePressed()) {}
+        for (int i = 0; i < lados - 1; i++) {
+            while (StdDraw.isMousePressed()) {
+            }
             while (!StdDraw.isMousePressed()) {
                 PoligonosApp.figuras.removeElementAt(c);
                 pol.removeElementAt(count);
                 pol.add(new Punto(StdDraw.mouseX(), StdDraw.mouseY()));
-                
+
                 PoligonosApp.figuras.set(c, pol);
                 PoligonosApp.mostrarFiguras();
             }
             count++;
         }
-        while (StdDraw.isMousePressed()) {}
+        while (StdDraw.isMousePressed()) {
+        }
         c++;
         PanelHerramientas.iniciarPanelHerramientas();
     }
 
-
-    public static void lapiz(){
+    public static void lapiz() {
         Poligono lap = new Poligono(10000, false, StdDraw.getPenColor());
-        while (!StdDraw.isMousePressed()) {}
+        while (!StdDraw.isMousePressed()) {
+        }
         while (StdDraw.isMousePressed()) {
             if (!StdDraw.isKeyPressed(0x1B)) {
                 try {
@@ -193,11 +211,32 @@ public class Herramientas {
                     c++;
                     lapiz();
                 }
-            } 
+            }
         }
         c++;
 
         PanelHerramientas.iniciarPanelHerramientas();
 
+    }
+
+    public static void guardar() {
+        PoligonosInOut.escribir(PoligonosApp.figuras, "paint.txt");
+        PanelHerramientas.iniciarPanelHerramientas();
+    }
+
+    public static void cargar() {
+        ListaDePoligonos temp = new ListaDePoligonos();
+        try {
+            temp = PoligonosInOut.leer("paint.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < temp.size(); i++) {
+            PoligonosApp.figuras.add(temp.get(i));
+        }
+        c = temp.size();
+        PoligonosApp.mostrarFiguras();
+        PanelHerramientas.iniciarPanelHerramientas();
     }
 }

@@ -3,6 +3,10 @@ import javax.swing.*;
 
 /**
  * PanelHerramientas
+ * 
+ * @author Manuel López-Cerón Corredor
+ * 
+ * 
  */
 
 public class PanelHerramientas {
@@ -11,7 +15,7 @@ public class PanelHerramientas {
         
         // Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-        String botones[] = {"Limpiar", "Colores", "Linea", "Cuadrilatero", "Poligono", "Lapiz"};
+        String botones[] = {"Limpiar", "Colores", "Linea", "Cuadrilatero", "Poligono", "Lapiz", "Guardar (sin color)", "Cargar (sin color)"};
 
         int opt = JOptionPane.showOptionDialog(null, null, "Herramientas", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null, botones, null);
 
@@ -40,6 +44,14 @@ public class PanelHerramientas {
 
             case 5:
                 Herramientas.lapiz();
+                break;
+
+            case 6:
+                Herramientas.guardar();
+                break;
+            
+            case 7:
+                Herramientas.cargar();
                 break;
         
             default:

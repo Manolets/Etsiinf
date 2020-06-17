@@ -1,18 +1,19 @@
+package ldfiguras;
 
-public class ListaDePoligonos implements IListaDePoligonos {
+public class ListaDeFiguras {
     private int n = 100;
     
-    private Poligono[] poligonos = new Poligono[n];
+    private figurasZxZ.Poligono[] poligonos = new figurasZxZ.Poligono[n];
+    
+    public ListaDeFiguras(){}
 
-    public ListaDePoligonos(){}
-
-    public ListaDePoligonos(int n){
+    public ListaDeFiguras(int n){
         this.n = n;
-        poligonos = new Poligono[n];
+        poligonos = new figurasZxZ.Poligono[n];
     }
 
     /** 
-    public ListaDePoligonos(Poligono[] pol){
+    public ListaDePoligonos(figurasZxZ.Poligono[] pol){
         for (int i = 0; i < pol.length; i++) {
             poligonos[i] = pol[i];
         }
@@ -30,8 +31,8 @@ public class ListaDePoligonos implements IListaDePoligonos {
         return res;
     }
 
-    public void add(Poligono c) {
-        poligonos[size()] = new Poligono(c);
+    public void add(figurasZxZ.Poligono c) {
+        poligonos[size()] = new figurasZxZ.Poligono(c);
     }
 
     public int size() {
@@ -43,11 +44,11 @@ public class ListaDePoligonos implements IListaDePoligonos {
         return i;
     }
 
-    public Poligono get(int pos) {
+    public figurasZxZ.Poligono get(int pos) {
         return poligonos[pos];
     }
 
-    public void set(int pos, Poligono elem) {
+    public void set(int pos, figurasZxZ.Poligono elem) {
         poligonos[pos] = elem;
     }
 
@@ -59,7 +60,7 @@ public class ListaDePoligonos implements IListaDePoligonos {
         }
     }
 
-    public void remove(Poligono elem){
+    public void remove(figurasZxZ.Poligono elem){
         int j = -1;
         for (int i = 0; i < size(); i++) {
             if (!elem.equals(poligonos[i]))
@@ -70,20 +71,20 @@ public class ListaDePoligonos implements IListaDePoligonos {
 
     public void ordenar(){
         int n = size();
-        Poligono temp;
+        figurasZxZ.Poligono temp;
         for(int i=0; i < n; i++){
             for(int j=1; j < (n-i); j++){
                 if(poligonos[j-1].size() > poligonos[j].size()){
                     //swap elements
-                    temp = new Poligono(poligonos[j-1]);
-                    poligonos[j-1] = new Poligono(poligonos[j]);
-                    poligonos[j] = new Poligono(temp);
+                    temp = new figurasZxZ.Poligono(poligonos[j-1]);
+                    poligonos[j-1] = new figurasZxZ.Poligono(poligonos[j]);
+                    poligonos[j] = new figurasZxZ.Poligono(temp);
                 }       
             }
         }
     }
 
-    public void addOrd(Poligono elem) {
+    public void addOrd(figurasZxZ.Poligono elem) {
         add(elem);
         ordenar();
     }
